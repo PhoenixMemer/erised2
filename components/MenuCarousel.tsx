@@ -172,4 +172,4 @@ const MenuCarousel: React.FC = () => {
   );
 };
 
-export default MenuCarousel;
+export default MenuCarousel;    
