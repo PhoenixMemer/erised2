@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, Send } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 interface CartSidebarProps {
@@ -11,11 +11,37 @@ interface CartSidebarProps {
 const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
   const { cart, removeFromCart, updateQuantity, cartTotal } = useCart();
 
+  // THE MAGIC CHECKOUT FUNCTION
+  const handleCheckout = () => {
+    // Format the number (remove '+' and spaces)
+    const phoneNumber = "923167059804"; 
+    
+    // Build the WhatsApp message
+    let message = `*✨ New Order from Cafe Erised ✨*\n\n`;
+    message += `*Order Details:*\n`;
+    
+    cart.forEach((item) => {
+      message += `▪️ ${item.quantity}x ${item.name} (Rs ${item.price * item.quantity})\n`;
+    });
+    
+    message += `\n*Total Amount: Rs ${cartTotal}*\n\n`;
+    message += `I would like to place this order, please!`;
+
+    // Encode the message so it works in a URL (turns spaces into %20, etc.)
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Close the sidebar
+    onClose();
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* The Dark Overlay Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -24,7 +50,6 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
             className="fixed inset-0 bg-navy/40 backdrop-blur-sm z-50"
           />
 
-          {/* The Sliding Sidebar */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -56,13 +81,12 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
               ) : (
                 cart.map((item) => (
                   <div key={item.id} className="flex items-center justify-between bg-cream p-4 rounded-xl border border-slate-100">
-                    <div className="flex-1">
-                      <h3 className="font-serif text-navy font-bold text-lg">{item.name}</h3>
+                    <div className="flex-1 pr-4">
+                      <h3 className="font-serif text-navy font-bold text-lg leading-tight mb-1">{item.name}</h3>
                       <p className="text-gold font-bold">Rs {item.price}</p>
                     </div>
 
-                    {/* Quantity Controls */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       <div className="flex items-center bg-white rounded-lg border border-slate-200 p-1 shadow-sm">
                         <button 
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -79,10 +103,9 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
                         </button>
                       </div>
                       
-                      {/* Delete Button */}
                       <button 
                         onClick={() => removeFromCart(item.id)}
-                        className="text-red-400 hover:text-red-600 p-2"
+                        className="text-red-400 hover:text-red-600 p-2 transition-colors"
                       >
                         <Trash2 size={18} />
                       </button>
@@ -100,9 +123,12 @@ const CartSidebar: React.FC<CartSidebarProps> = ({ isOpen, onClose }) => {
                   <span className="font-serif text-2xl text-navy font-bold">Rs {cartTotal}</span>
                 </div>
                 
+                {/* CHECKOUT BUTTON WITH EVENT LISTENER */}
                 <button 
-                  className="w-full bg-navy text-white py-4 rounded-xl uppercase tracking-widest text-sm font-bold transition-all hover:bg-gold hover:shadow-lg hover:shadow-gold/30"
+                  onClick={handleCheckout}
+                  className="w-full flex items-center justify-center gap-3 bg-navy text-white py-4 rounded-xl uppercase tracking-widest text-sm font-bold transition-all hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-600/30"
                 >
+                  <Send size={18} />
                   Checkout via WhatsApp
                 </button>
               </div>
