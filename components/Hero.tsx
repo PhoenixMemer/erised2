@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import matchaImg from './assets/matcha-drink.png';
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const Hero: React.FC = () => {
                {/* Shadow/Glow effect */}
                <div className="absolute inset-0 bg-navy/20 blur-3xl rounded-full scale-75 translate-y-12"></div>
                <img 
-                src="https://images.unsplash.com/photo-1582650085442-d6210f96e4b9?q=80&w=800&auto=format&fit=crop" 
+                src={matchaImg}
                 alt="Premium Matcha Drink" 
                 className="relative w-full h-full object-cover rounded-2xl shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-700"
               />

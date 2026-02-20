@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu as MenuIcon, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import CartSidebar from './CartSidebar';
 
 interface NavLink {
   label: string;
@@ -43,7 +45,8 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-
+  const { itemCount } = useCart();
+  
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -93,13 +96,18 @@ const Navbar: React.FC = () => {
               />
             ))}
             
-            {/* Bag Icon */}
-            <button className="relative group">
-              <ShoppingBag className="w-5 h-5 text-navy transition-transform group-hover:scale-110" />
-              <span className="absolute -top-2 -right-2 w-4 h-4 bg-gold text-[10px] text-white flex items-center justify-center rounded-full">
-                0
-              </span>
-            </button>
+          {/* Bag Icon */}
+        <button 
+        onClick={() => setIsCartOpen(true)} // <-- ADD THIS
+        className="relative group"
+>
+       <ShoppingBag className="w-5 h-5 text-navy transition-transform group-hover:scale-110" />
+         {itemCount > 0 && (
+         <span className="absolute -top-2 -right-2 w-4 h-4 bg-gold text-[10px] text-white flex items-center justify-center rounded-full animate-bounce">
+           {itemCount}
+         </span>
+              )}
+        </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -143,8 +151,11 @@ const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </>
   );
 };
+
+const [isCartOpen, setIsCartOpen] = useState(false);
 
 export default Navbar;

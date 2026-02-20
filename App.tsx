@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-
+import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import LiquidPreloader from './components/LiquidPreloader';
 import Home from './pages/Home';
@@ -49,11 +49,14 @@ const AppContent = () => {
   );
 };
 
+
 const App: React.FC = () => {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <CartProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </CartProvider>
   );
 };
 
