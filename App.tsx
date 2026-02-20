@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import LiquidPreloader from './components/LiquidPreloader';
 import Home from './pages/Home';
 import MenuPage from './pages/MenuPage';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Scroll to top helper
 const ScrollToTop = () => {
