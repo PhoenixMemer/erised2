@@ -11,7 +11,7 @@ import cremeImg from './assets/creme.jpg';
 
 const MENU_ITEMS: MenuItem[] = [
   { id: 1, title: 'Cold Foam Black Coffee', price: 'Rs 220', image: coldCoffeeImg, description: 'The Black Patronus armed with a frothy cold foam on top to ward off overtime sleep.'},
-  { id: 2, title: 'Cookies & Cream Milkshake', price: 'Rs 520', image: oreoShakeImg, description: 'Crushed Oreos blended into a creamy, dreamy classic.'},
+  { id: 2, title: 'Cookies & Cream Milkshake', price: 'Rs 420', image: oreoShakeImg, description: 'Crushed Oreos blended into a creamy, dreamy classic.'},
   { id: 3, title: 'Creme Brulee Latte', price: 'Rs 680', image: cremeImg, description: 'Caramalised with an Incendio charm, feels like a warm comforting breakfast.'},
   { id: 4, title: 'Hot Chocolate', price: 'Rs 570', image: hotChocImg, description: 'Concocted of premium dark chocolate with garnishes of the finest choc shavings.'}
 ];

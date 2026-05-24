@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Analytics } from "@vercel/analytics/next"
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Instagram, Mail, MessageCircle } from 'lucide-react'; // <-- Added icons
@@ -84,11 +85,11 @@ const AppContent = () => {
 
 const App: React.FC = () => {
   return (
-    <CartProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </CartProvider>
+    <Router>
+      <AppContent />
+      {/* THE MAGIC TRACKER TAG */}
+      <Analytics /> 
+    </Router>
   );
 };
 
