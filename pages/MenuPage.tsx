@@ -14,13 +14,18 @@ interface MenuItem {
 
 const MENU_DATA: MenuItem[] = [
   { id: 'h1', category: 'Hot Potions', name: 'Butterscotch Firebolt', price: 480, description: 'A warming blend of rich butterscotch and steamed milk with a hint of cinnamon.' },
-  { id: 'h2', category: 'Hot Potions', name: 'London Fog Earl Grey', price: 350, description: 'Classic Earl Grey tea steeped in steamed vanilla milk and lavender syrup.' },
-  { id: 'h3', category: 'Hot Potions', name: 'Rose Vanilla Sleep Latte', price: 420, description: 'Decaffeinated espresso infused with calming rose water and sweet vanilla.' },
+  { id: 'h2', category: 'Hot Potions', name: 'Hot Chocolate', price: 570, description: 'A cauldron-brewed classic. Velvety, molten dark chocolate slowly steamed with rich whole milk.' },
+  { id: 'h3', category: 'Hot Potions', name: 'London Fog Earl Grey', price: 350, description: 'Classic Earl Grey tea steeped in steamed vanilla milk and lavender syrup.' },
+  { id: 'h4', category: 'Hot Potions', name: 'Rose Vanilla Sleep Latte', price: 420, description: 'Decaffeinated espresso infused with calming rose water and sweet vanilla.' },
   { id: 'c1', category: 'Cold Elixirs', name: 'Butterbeer', price: 710, description: 'The wizarding classic. Rich butterscotch cream soda topped with cold foam.' },
   { id: 'c2', category: 'Cold Elixirs', name: 'Creme Brulee Latte', price: 680, description: 'Iced espresso with caramelized sugar syrup and a torched sugar topping.' },
-  { id: 'c3', category: 'Cold Elixirs', name: 'Brown Sugar Shaken Espresso', price: 520, description: 'Vigourously shaken espresso with dark brown sugar and a splash of oat milk.' },
+  { id: 'c3', category: 'Cold Elixirs', name: 'Cinnamon Roll Latte', price: 680, description: 'Espresso swirled with spiced brown sugar, topped with whipped cream and a dusting of cinnamon magic.' },
+  { id: 'c4', category: 'Cold Elixirs', name: 'Cookies & Cream Shake', price: 520, description: 'Crushed chocolate cookies blended thick with Madagascar vanilla bean ice cream and a dark cocoa drizzle.' },
+  { id: 'c5', category: 'Cold Elixirs', name: 'Cold Foam Black Coffee', price: 680, description: 'Our signature dark roast cold brew, topped with a cascading layer of sweet, velvety vanilla cream foam.' },
+  { id: 'c6', category: 'Cold Elixirs', name: 'Brown Sugar Shaken Espresso', price: 520, description: 'Vigourously shaken espresso with dark brown sugar and a splash of oat milk.' },
   { id: 'm1', category: 'For The Muggles', name: 'Spanish Latte', price: 520, description: 'A sweet, creamy classic made with sweetened condensed milk and rich espresso.' },
-  { id: 'm2', category: 'For The Muggles', name: 'Chocolate Wands (5pcs)', price: 250, description: 'Crispy biscuit sticks heavily coated in premium dark Belgian chocolate.' }
+  { id: 'm2', category: 'For The Muggles', name: 'Chocolate Iced Latte', price: 480, description: 'Rich espresso and creamy milk poured over ice, infused with our house-made dark chocolate syrup.' },
+  { id: 'm3', category: 'For The Muggles', name: 'Muggles Special Cold Coffee', price: 480, description: 'A perfectly balanced, frosty blend of our house espresso, sweetened milk, and a hint of vanilla.' }
 ];
 
 const categories = ['Hot Potions', 'Cold Elixirs', 'For The Muggles'];
@@ -89,7 +94,7 @@ const MenuPage: React.FC = () => {
             </nav>
           </div>
           <div className="hidden md:block text-slate-400 text-xs tracking-widest leading-relaxed">
-            <p>EST. 1996</p><p>DIAGON ALLEY, LONDON</p>
+            <p>EST. 2025</p><p>SARGODHA</p>
           </div>
         </div>
 
