@@ -64,7 +64,7 @@ const MenuPage: React.FC = () => {
       <div className="flex flex-col md:flex-row min-h-screen max-w-[1400px] mx-auto">
         
         {/* Sidebar */}
-        <div className="w-full md:w-1/4 md:h-screen md:sticky md:top-0 bg-cream p-8 md:p-12 flex flex-col justify-between z-20">
+        <div className="w-full md:w-1/4 md:h-screen md:sticky md:top-0 bg-cream p-8 pt-28 md:p-12 md:pt-36 flex flex-col justify-between z-20">
           <div>
             <Link to="/" className="inline-flex items-center text-slate-500 hover:text-navy transition-colors mb-16 uppercase tracking-widest text-xs font-bold">
               <ArrowLeft size={16} className="mr-2" /> Back to Home
@@ -94,7 +94,7 @@ const MenuPage: React.FC = () => {
         </div>
 
         {/* Main Content */}
-        <div className="w-full md:w-3/4 p-4 md:p-12 md:py-16">
+        <div className="w-full md:w-3/4 p-4 md:p-12 pt-24 md:pt-32">
            <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 md:p-16 max-w-4xl mx-auto">
              
              <div className="w-full flex justify-center mb-16">

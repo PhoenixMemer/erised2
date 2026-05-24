@@ -3,12 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Heart, Plus, Check } from 'lucide-react';
 import { MenuItem } from '../types';
 import { useCart } from '../context/CartContext';
+import coldCoffeeImg from './assets/black-coffee.jpg';
+import oreoShakeImg from './assets/oreo-shake.jpg';
+import hotChocImg from './assets/hot-chocolate.jpg';
+import cremeImg from './assets/creme.jpg';
+
 
 const MENU_ITEMS: MenuItem[] = [
-  { id: 1, title: 'Cold Coffee', description: 'Our signature brew, perfectly cooled and ready to refresh.', price: 'Rs 3000', image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600&auto=format&fit=crop' },
-  { id: 2, title: 'Oreo Milkshake', description: 'Crushed Oreos blended into a creamy, dreamy classic.', price: 'Rs 5000', image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=600&auto=format&fit=crop' },
-  { id: 3, title: 'Cinnamon Roll Latte', description: 'Espresso, steamed milk, and cinnamon vanilla goodness.', price: 'Rs 4500', image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop' },
-  { id: 4, title: 'Hot Chocolate', description: 'A classic comfort drink: creamy, decadent, and utterly satisfying.', price: 'Rs 3500', image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=600&auto=format&fit=crop' }
+  { id: 1, title: 'Cold Foam Black Coffee', price: 'Rs 220', image: coldCoffeeImg, description: 'The Black Patronus armed with a frothy cold foam on top to ward off overtime sleep.'},
+  { id: 2, title: 'Cookies & Cream Milkshake', price: 'Rs 520', image: oreoShakeImg, description: 'Crushed Oreos blended into a creamy, dreamy classic.'},
+  { id: 3, title: 'Creme Brulee Latte', price: 'Rs 680', image: cremeImg, description: 'Caramalised with an Incendio charm, feels like a warm comforting breakfast.'},
+  { id: 4, title: 'Hot Chocolate', price: 'Rs 570', image: hotChocImg, description: 'Concocted of premium dark chocolate with garnishes of the finest choc shavings.'}
 ];
 
 const MenuCarousel: React.FC = () => {

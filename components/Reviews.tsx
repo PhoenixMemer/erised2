@@ -5,19 +5,19 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const REVIEWS = [
   {
     id: 1,
-    text: "The matcha here is absolutely authentic. It reminds me of my trip to Kyoto. The atmosphere is just the cherry on top for a perfect afternoon."
+    text: "Hello ERISED Cafe! At the pop up I had the brownies and the chocolate wands and they were absolutely amazing <3 Loved the bow and the taste!"
   },
   {
     id: 2,
-    text: "I come here every morning for the Cold Coffee. It's the perfect kickstart to my day. The staff always remembers my order and the wifi is blazing fast."
+    text: "I ordered the chocolate iced latte and the cookies and cream milkshake and I'm kind of speechless, both were so flavourful. The Cookies and Cream milkshake was honestly just the right ratio of sweetness and taste. My absolute fave 10/10"
   },
   {
     id: 3,
-    text: "A hidden gem in the city. The cinnamon roll latte is to die for. I love bringing my clients here for casual meetings, the ambiance is unmatched."
+    text: "The notes were SO yum and the packaging was so adorbs toog i really felt like it was curated with so much hardwork, insanely worth it, reasonable price and awesome work! loved the presentation"
   },
   {
     id: 4,
-    text: "Finally a place that serves real hot chocolate, not just sugary water. It's rich, creamy, and absolutely decadent. My kids love the weekend treats."
+    text: "A frnd of mine ordered from u guys and he wouldnt shut up abt it so i wanted to to try it asw."
   }
 ];
 

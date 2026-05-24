@@ -52,12 +52,12 @@ const AppContent = () => {
             <div className="container mx-auto max-w-4xl flex flex-col items-center">
               
               <h2 className="font-serif text-3xl md:text-4xl text-gold mb-8 italic text-center">
-                Manage Mischief With Us
+                Get In Touch With Us!
               </h2>
               
               {/* Interactive Contact Buttons */}
               <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
-                 <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-slate-500/50 flex items-center justify-center text-slate-300 hover:border-gold hover:text-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all bg-slate-800/20">
+                 <a href="https://www.instagram.com/erised.cafe/" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-slate-500/50 flex items-center justify-center text-slate-300 hover:border-gold hover:text-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all bg-slate-800/20">
                    <Instagram size={24} />
                  </a>
                  <a href="mailto:info@cafeerised.com" className="w-14 h-14 rounded-full border border-slate-500/50 flex items-center justify-center text-slate-300 hover:border-gold hover:text-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all bg-slate-800/20">
@@ -70,7 +70,7 @@ const AppContent = () => {
 
               {/* Cafe Branding Info */}
               <div className="text-center text-xs tracking-[0.2em] text-slate-500 space-y-3 uppercase font-bold">
-                 <p>EST. 1996 • DIAGON ALLEY, LONDON</p>
+                 <p>EST. 2025 • CLOUD CAFE, SARGODHA</p>
                  <p>&copy; {new Date().getFullYear()} CAFE ERISED. All Rights Reserved.</p>
               </div>
             </div>
