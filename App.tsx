@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Instagram, Mail, MessageCircle } from 'lucide-react'; // <-- Added icons
+import { Analytics } from '@vercel/analytics/react';
 
 import Navbar from './components/Navbar';
 import LiquidPreloader from './components/LiquidPreloader';
@@ -87,6 +88,7 @@ const App: React.FC = () => {
     <CartProvider>
       <Router>
         <AppContent />
+        <Analytics />
       </Router>
     </CartProvider>
   );
