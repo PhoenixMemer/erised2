@@ -21,7 +21,7 @@ const MENU_DATA: MenuItem[] = [
   { id: 'c2', category: 'Cold Elixirs', name: 'Creme Brulee Latte', price: 680, description: 'Iced espresso with caramelized sugar syrup and a torched sugar topping.' },
   { id: 'c3', category: 'Cold Elixirs', name: 'Cinnamon Roll Latte', price: 680, description: 'Espresso swirled with spiced brown sugar, topped with whipped cream and a dusting of cinnamon magic.' },
   { id: 'c4', category: 'Cold Elixirs', name: 'Cookies & Cream Shake', price: 520, description: 'Crushed chocolate cookies blended thick with Madagascar vanilla bean ice cream and a dark cocoa drizzle.' },
-  { id: 'c5', category: 'Cold Elixirs', name: 'Cold Foam Black Coffee', price: 680, description: 'Our signature dark roast cold brew, topped with a cascading layer of sweet, velvety vanilla cream foam.' },
+  { id: 'c5', category: 'Cold Elixirs', name: 'Cold Foam Black Coffee', price: 220, description: 'Our signature dark roast cold brew, topped with a cascading layer of sweet, velvety vanilla cream foam.' },
   { id: 'c6', category: 'Cold Elixirs', name: 'Brown Sugar Shaken Espresso', price: 520, description: 'Vigourously shaken espresso with dark brown sugar and a splash of oat milk.' },
   { id: 'm1', category: 'For The Muggles', name: 'Spanish Latte', price: 520, description: 'A sweet, creamy classic made with sweetened condensed milk and rich espresso.' },
   { id: 'm2', category: 'For The Muggles', name: 'Chocolate Iced Latte', price: 480, description: 'Rich espresso and creamy milk poured over ice, infused with our house-made dark chocolate syrup.' },

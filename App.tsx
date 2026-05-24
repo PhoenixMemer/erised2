@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Analytics } from "@vercel/analytics/next"
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Instagram, Mail, MessageCircle } from 'lucide-react'; // <-- Added icons
+import { Instagram, Mail, MessageCircle } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 import Navbar from './components/Navbar';
 import LiquidPreloader from './components/LiquidPreloader';
@@ -48,7 +48,7 @@ const AppContent = () => {
             </Routes>
           </main>
 
-          {/* THE NEW SOLID DARK NAVY FOOTER */}
+          {/* SOLID DARK NAVY FOOTER */}
           <footer id="contact" className="bg-navy py-16 px-6 relative border-t-[6px] border-gold overflow-hidden">
             <div className="container mx-auto max-w-4xl flex flex-col items-center">
               
@@ -56,7 +56,6 @@ const AppContent = () => {
                 Get In Touch With Us!
               </h2>
               
-              {/* Interactive Contact Buttons */}
               <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
                  <a href="https://www.instagram.com/erised.cafe/" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full border border-slate-500/50 flex items-center justify-center text-slate-300 hover:border-gold hover:text-gold hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all bg-slate-800/20">
                    <Instagram size={24} />
@@ -69,7 +68,6 @@ const AppContent = () => {
                  </a>
               </div>
 
-              {/* Cafe Branding Info */}
               <div className="text-center text-xs tracking-[0.2em] text-slate-500 space-y-3 uppercase font-bold">
                  <p>EST. 2025 • CLOUD CAFE, SARGODHA</p>
                  <p>&copy; {new Date().getFullYear()} CAFE ERISED. All Rights Reserved.</p>
@@ -85,11 +83,12 @@ const AppContent = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <AppContent />
-      {/* THE MAGIC TRACKER TAG */}
-      <Analytics /> 
-    </Router>
+    <CartProvider>
+      <Router>
+        <AppContent />
+        <Analytics />
+      </Router>
+    </CartProvider>
   );
 };
 

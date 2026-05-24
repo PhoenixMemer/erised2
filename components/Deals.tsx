@@ -101,7 +101,7 @@ const Deals: React.FC = () => {
             {/* Floating Badge */}
             <div className="absolute top-6 right-6">
               <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                Weekend Only
+                Rs650
               </div>
             </div>
 
