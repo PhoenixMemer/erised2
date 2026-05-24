@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       
       <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0">
         <h1 className="text-[8rem] md:text-[18rem] font-serif text-navy/5 leading-none tracking-widest select-none">
-          MATCHA
+          LATTE
         </h1>
       </div>
 
@@ -26,10 +26,10 @@ const Hero: React.FC = () => {
               Drink to your heart's desire
             </h2>
             <h1 className="text-5xl md:text-8xl font-serif text-navy relative">
-              MATCHA
+              CINNAMON ROLL LATTE
             </h1>
             <p className="max-w-md text-slate-600 text-base md:text-lg leading-relaxed font-light px-4 md:px-0">
-              The superfood green tea. Matcha is a vibrant, finely milled powder known for delivering a focused, calm energy and a wealth of antioxidants.
+              It's a cinnamon roll in a latte! The caramel and cinnamon perfectly complimenting each other has you casting GEMINO to get another.
             </p>
             <button onClick={() => navigate('/menu')} className="px-8 md:px-10 py-4 bg-navy text-white font-sans uppercase tracking-widest text-xs md:text-sm btn-animate hover:bg-gold hover:text-navy hover:border-gold">
               View Full Menu
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
                <div className="absolute inset-0 bg-navy/20 blur-3xl rounded-full scale-75 translate-y-8"></div>
                <motion.img 
                 src={matchaImg}
-                alt="Premium Matcha Drink" 
+                alt="Cinnamon Latte Drink" 
                 className="relative w-full h-full object-contain drop-shadow-2xl"
                 animate={{ y: [0, -20, 0] }}
                 transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}

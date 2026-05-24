@@ -32,14 +32,10 @@ const MenuCarousel: React.FC = () => {
   };
 
   const handleAddToCart = (item: MenuItem, e: React.MouseEvent) => {
-    e.stopPropagation(); // Stops the slide from changing when clicking the button
-    
-    // Convert "Rs 3000" into the number 3000 so the Cart can do math!
+    e.stopPropagation(); 
     const numericPrice = parseInt(item.price.replace(/\D/g, ''), 10);
-    
     addToCart({ id: String(item.id), name: item.title, price: numericPrice });
 
-    // The FASTER Animation Trigger (600ms)
     setAddedItems((prev) => new Set(prev).add(item.id));
     setTimeout(() => {
       setAddedItems((prev) => {
@@ -47,7 +43,7 @@ const MenuCarousel: React.FC = () => {
         next.delete(item.id);
         return next;
       });
-    }, 600); // <-- Reduced from 1500ms
+    }, 600); 
   };
 
   return (
@@ -99,28 +95,20 @@ const MenuCarousel: React.FC = () => {
                     className={`absolute w-[280px] md:w-[320px] rounded-3xl shadow-2xl p-6 flex flex-col items-center justify-between h-[450px] md:h-[500px] cursor-pointer`}
                     onClick={() => setActiveIndex(index)}
                  >
-                    <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-cream shadow-md -mt-16 bg-white">
+                    {/* Shifted the image slightly higher and removed the logo text completely */}
+                    <div className="w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden mb-6 border-4 border-cream shadow-md -mt-20 bg-white">
                       <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                     </div>
 
                     <div className="text-center flex-grow flex flex-col justify-center">
-                       {isActive && (
-                         <div className="mb-2">
-                           <span className="font-serif italic text-xs tracking-widest opacity-70">cafe</span>
-                           <h3 className="font-serif text-xl tracking-widest">ERISED</h3>
-                         </div>
-                       )}
                        <h3 className={`font-serif font-bold mb-4 leading-tight ${isActive ? 'text-3xl' : 'text-2xl'}`}>
-                         {item.title.split(' ').map((word, i) => (
-                           <span key={i} className="block">{word}</span>
-                         ))}
+                         {item.title}
                        </h3>
                        <p className={`text-sm mb-6 ${isActive ? 'text-gray-300' : 'text-slate-500'}`}>
                          {item.description}
                        </p>
                     </div>
 
-                    {/* Bottom Action Bar */}
                     {isActive && (
                       <div className="w-full flex justify-between items-center mt-4">
                         <span className="bg-white text-navy px-4 py-2 text-lg font-bold rounded">
@@ -128,7 +116,6 @@ const MenuCarousel: React.FC = () => {
                         </span>
                         
                         <div className="flex items-center gap-2">
-                          {/* Heart Button */}
                           <motion.button 
                             whileTap={{ scale: 0.8 }}
                             onClick={(e) => toggleLike(item.id, e)}
@@ -139,7 +126,6 @@ const MenuCarousel: React.FC = () => {
                             </motion.div>
                           </motion.button>
 
-                          {/* SNAPPY Add To Cart Button */}
                           <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
@@ -152,23 +138,11 @@ const MenuCarousel: React.FC = () => {
                           >
                             <AnimatePresence mode="wait">
                               {isAdded ? (
-                                <motion.div 
-                                  key="check" 
-                                  initial={{ scale: 0.5, opacity: 0 }} 
-                                  animate={{ scale: [1.3, 1], opacity: 1 }} 
-                                  exit={{ scale: 0.5, opacity: 0 }} 
-                                  transition={{ duration: 0.15 }}
-                                >
+                                <motion.div key="check" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: [1.3, 1], opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }} transition={{ duration: 0.15 }}>
                                   <Check size={18} strokeWidth={4} />
                                 </motion.div>
                               ) : (
-                                <motion.div 
-                                  key="plus" 
-                                  initial={{ scale: 0.5, opacity: 0 }} 
-                                  animate={{ scale: 1, opacity: 1 }} 
-                                  exit={{ scale: 0.5, opacity: 0 }} 
-                                  transition={{ duration: 0.15 }}
-                                >
+                                <motion.div key="plus" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.5, opacity: 0 }} transition={{ duration: 0.15 }}>
                                   <Plus size={18} strokeWidth={2.5} />
                                 </motion.div>
                               )}

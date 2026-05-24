@@ -24,7 +24,7 @@ const Timings: React.FC = () => {
                 </div>
                 <div className="w-full md:w-auto h-px md:h-8 bg-gray-300 my-4 md:my-0 md:mx-8"></div>
                 <div className="flex-1 text-center md:text-right">
-                  <p className="text-xl md:text-2xl font-light tracking-wider">12:00pm – 10:00pm</p>
+                  <p className="text-xl md:text-2xl font-light tracking-wider">1:00pm – 10:00pm</p>
                 </div>
              </div>
           </div>
@@ -37,7 +37,7 @@ const Timings: React.FC = () => {
                 </div>
                 <div className="w-full md:w-auto h-px md:h-8 bg-gray-300 my-4 md:my-0 md:mx-8"></div>
                 <div className="flex-1 text-center md:text-right">
-                  <p className="text-xl md:text-2xl font-light tracking-wider">11:30am – 10:30pm</p>
+                  <p className="text-xl md:text-2xl font-light tracking-wider">1:00pm – 10:00pm</p>
                 </div>
              </div>
           </div>

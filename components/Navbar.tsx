@@ -49,7 +49,6 @@ const Navbar: React.FC = () => {
       >
         <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
           
-          {/* LEFT: Hamburger (Mobile) OR Links (Desktop) */}
           <div className="flex-1 flex items-center justify-start">
             <button className="md:hidden text-navy p-1" onClick={() => setMobileMenuOpen(true)}>
               <MenuIcon size={28} />
@@ -61,7 +60,6 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* CENTER: Logo */}
           <Link to="/" className="flex-shrink-0 text-center group flex flex-col items-center justify-center">
             <span className="font-serif italic text-sm md:text-base text-slate-500 leading-none">cafe</span>
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-navy tracking-widest leading-none mt-1 group-hover:text-gold transition-colors duration-500">
@@ -69,7 +67,6 @@ const Navbar: React.FC = () => {
             </h1>
           </Link>
 
-          {/* RIGHT: Links (Desktop) AND Cart (Mobile + Desktop) */}
           <div className="flex-1 flex items-center justify-end gap-6 md:gap-8">
             <div className="hidden md:flex items-center space-x-8">
               {LINKS.slice(2).map((link) => (
@@ -77,7 +74,6 @@ const Navbar: React.FC = () => {
               ))}
             </div>
             
-            {/* The Cart is now visible on BOTH mobile and desktop */}
             <button onClick={() => setIsCartOpen(true)} className="relative group p-1">
               <ShoppingBag className="w-6 h-6 md:w-5 md:h-5 text-navy transition-transform group-hover:scale-110" />
               {itemCount > 0 && (
@@ -87,31 +83,61 @@ const Navbar: React.FC = () => {
               )}
             </button>
           </div>
-
         </div>
       </motion.nav>
 
-      {/* GLASSMORPHIC Mobile Menu Overlay */}
+      {/* THE NEW CINEMATIC MOBILE MENU */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 z-50 bg-navy/80 flex flex-col items-center justify-center"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }} // Heavy Apple-style curve
+            className="fixed inset-0 z-50 bg-navy/95 backdrop-blur-2xl flex flex-col items-center justify-center"
           >
             <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 text-white/70 hover:text-white p-2">
               <X size={36} />
             </button>
-            <div className="space-y-10 text-center">
-              {LINKS.map((link) => (
-                <div key={link.label} onClick={() => setMobileMenuOpen(false)}>
-                  <Link to={link.href} className="block font-serif text-4xl text-cream hover:text-gold transition-colors">
+
+            {/* Glowing Center Logo inside menu */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }}
+              className="mb-12 text-center"
+            >
+              <span className="font-serif italic text-gold/60 text-lg">cafe</span>
+              <h2 className="font-serif text-5xl text-gold tracking-widest mt-1">ERISED</h2>
+              <div className="w-12 h-1 bg-white/20 mx-auto mt-6 rounded-full"></div>
+            </motion.div>
+            
+            {/* Staggered Links */}
+            <div className="space-y-8 text-center w-full">
+              {LINKS.map((link, index) => (
+                <motion.div 
+                  key={link.label} 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Link to={link.href} className="block font-serif text-4xl text-cream hover:text-gold transition-colors tracking-wide">
                     {link.label}
                   </Link>
-                </div>
+                </motion.div>
               ))}
             </div>
+            
+            {/* Bottom Contact Hook in Mobile Menu */}
+            <motion.div 
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+              className="absolute bottom-12 text-center"
+            >
+               <p className="text-white/40 text-xs tracking-[0.3em] uppercase mb-2">Connect with us</p>
+               <div className="flex gap-4 justify-center text-gold">
+                  <a href="https://wa.me/923167059804" className="p-2 border border-white/10 rounded-full"><ShoppingBag size={18} /></a>
+               </div>
+            </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
