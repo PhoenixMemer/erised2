@@ -25,7 +25,8 @@ const MENU_DATA: MenuItem[] = [
   { id: 'c6', category: 'Cold Elixirs', name: 'Brown Sugar Shaken Espresso', price: 520, description: 'Vigourously shaken espresso with dark brown sugar and a splash of oat milk.' },
   { id: 'm1', category: 'For The Muggles', name: 'Spanish Latte', price: 520, description: 'A sweet, creamy classic made with sweetened condensed milk and rich espresso.' },
   { id: 'm2', category: 'For The Muggles', name: 'Chocolate Iced Latte', price: 480, description: 'Rich espresso and creamy milk poured over ice, infused with our house-made dark chocolate syrup.' },
-  { id: 'm3', category: 'For The Muggles', name: 'Muggles Special Cold Coffee', price: 480, description: 'A perfectly balanced, frosty blend of our house espresso, sweetened milk, and a hint of vanilla.' }
+  { id: 'm3', category: 'For The Muggles', name: 'Special Chocolate Wands', price: 250, description: 'Our chocolate wands have arrived! Rich, handcrafted and made to enchant every sip and bite.' },
+  { id: 'm4', category: 'For The Muggles', name: 'Muggles Special Cold Coffee', price: 480, description: 'A perfectly balanced, frosty blend of our house espresso, sweetened milk, and a hint of vanilla.' }
 ];
 
 const categories = ['Hot Potions', 'Cold Elixirs', 'For The Muggles'];
