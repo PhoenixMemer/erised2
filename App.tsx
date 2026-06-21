@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 import Navbar from './components/Navbar';
 import LiquidPreloader from './components/LiquidPreloader';
+import PromoPopup from './components/PromoPopup'; // <-- IMPORT PROMO
 import Home from './pages/Home';
 import MenuPage from './pages/MenuPage';
 import { CartProvider } from './context/CartContext';
@@ -20,7 +21,16 @@ const ScrollToTop = () => {
 
 const AppContent = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showPromo, setShowPromo] = useState(false); // <-- PROMO STATE
   const location = useLocation();
+
+  const handlePreloaderComplete = () => {
+    setIsLoading(false);
+    // Trigger the popup exactly 1.5 seconds after the curtain lifts!
+    setTimeout(() => {
+      setShowPromo(true);
+    }, 1500);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-cream font-sans selection:bg-navy selection:text-white overflow-x-hidden">
@@ -28,9 +38,12 @@ const AppContent = () => {
       
       <AnimatePresence mode="wait">
         {isLoading && (
-          <LiquidPreloader key="preloader" onComplete={() => setIsLoading(false)} />
+          <LiquidPreloader key="preloader" onComplete={handlePreloaderComplete} />
         )}
       </AnimatePresence>
+
+      {/* THE PROMO POPUP */}
+      <PromoPopup isOpen={showPromo} onClose={() => setShowPromo(false)} />
 
       {!isLoading && (
         <motion.div
@@ -48,7 +61,6 @@ const AppContent = () => {
             </Routes>
           </main>
 
-          {/* SOLID DARK NAVY FOOTER */}
           <footer id="contact" className="bg-navy py-16 px-6 relative border-t-[6px] border-gold overflow-hidden">
             <div className="container mx-auto max-w-4xl flex flex-col items-center">
               
