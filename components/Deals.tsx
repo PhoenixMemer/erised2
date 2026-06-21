@@ -149,7 +149,7 @@ const Deals: React.FC = () => {
                  Buy 1 <br/>Get 1 Free
                </h3>
                <p className="text-gold font-sans text-sm tracking-wide mb-6">
-                 On all signature Iced Lattes.
+                 Two for the price of one.
                </p>
 
                <div className="flex items-center gap-3 text-white text-xs font-bold uppercase tracking-widest group-hover:text-gold transition-colors duration-300">
